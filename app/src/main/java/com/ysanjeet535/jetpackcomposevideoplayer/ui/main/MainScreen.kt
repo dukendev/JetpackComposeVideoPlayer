@@ -13,8 +13,10 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
+import com.ysanjeet535.jetpackcomposevideoplayer.R
 import com.ysanjeet535.jetpackcomposevideoplayer.Screen
 
 @Composable
@@ -45,7 +47,7 @@ fun VideoUrlInputContainer(navController: NavController) {
                 navController.navigate(Screen.Video.createRoute(videoUrl))
             }
         }) {
-            Text(text = "Submit video url")
+            Text(text = stringResource(R.string.submit_video_url))
         }
     }
 }

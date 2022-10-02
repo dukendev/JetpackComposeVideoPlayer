@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">JetpackComposeVideoPlayer</string>
+    <string name="submit_video_url">Submit video url</string>
 </resources>
