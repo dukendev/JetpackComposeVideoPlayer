@@ -12,7 +12,6 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
@@ -32,7 +31,7 @@ fun VideoUrlInputContainer(navController: NavController) {
     var videoUrl by remember {
         mutableStateOf("")
     }
-    val context = LocalContext.current
+
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -41,13 +40,16 @@ fun VideoUrlInputContainer(navController: NavController) {
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
+
         TextField(value = videoUrl, onValueChange = { videoUrl = it })
+
         Button(onClick = {
             if (videoUrl.isNotEmpty()) {
-                navController.navigate(Screen.Video.createRoute(videoUrl))
+                navController.navigate(Screen.Video.withArgs(videoUrl))
             }
         }) {
             Text(text = stringResource(R.string.submit_video_url))
         }
+
     }
 }
